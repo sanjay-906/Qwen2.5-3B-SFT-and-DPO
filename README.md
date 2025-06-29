@@ -10,7 +10,7 @@ Dataset length = 817 fields
 ### Stage 1: Supervised Fine-tuning
 
 Trained for 27 epochs<br>
-#### Insights:
+#### Insights
 
 | Metric        | Trend         | Comment                      |
 |---------------|---------------|------------------------------|
@@ -21,7 +21,7 @@ Trained for 27 epochs<br>
 | BERTScore F1  | ↑ slow & high | Semantic similarity is strong |
 
 
-#### Metric Summary Table
+#### Metrics Summary
 
 | Metric        | Start Value | Best Value | Best Epoch | % Improvement |
 |---------------|-------------|------------|------------|----------------|
@@ -39,4 +39,27 @@ Trained for 27 epochs<br>
 ![eval-loss](https://github.com/user-attachments/assets/ff5ad2c1-c7ab-4545-b831-aac26431b0f2)
 
 ### Stage 2: Direct Preference Optimization
-Work in progress
+
+Trained for 5 epochs<br>
+#### Insights
+
+
+| **Metric**           | **Trend**       | **Comment**                                               |
+|----------------------|------------------|------------------------------------------------------------|
+| Reward (Chosen)      | ↑ moderate       | Model outputs are aligning better with reward model        |
+| Reward (Rejected)    | ↓ to < 0         | Rejected completions scored worse (clearer separation)     |
+| Reward Accuracy      | ↑ strong         | Preference agreement with reward model is improving        |
+| Reward Margin        | ↑ consistent     | Chosen vs. rejected gap is increasing                      |
+
+
+
+
+#### Metrics Summary
+
+| **Metric**           | **Start Value** | **Best Value** | **Best Epoch** | **% Change**        |
+|----------------------|------------------|----------------|----------------|----------------------|
+| Reward (Chosen)      | 0.1985           | 0.2704         | 3              | +36.2%               |
+| Reward (Rejected)    | 0.0755           | -0.0235        | 5              | -131.1%              |
+| Reward Accuracy      | 0.7546           | 0.8588         | 4–5            | +13.8%               |
+| Reward Margin        | 0.1230           | 0.2900         | 5              | +135.8%              |
+
